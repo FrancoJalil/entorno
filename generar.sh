@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Verificar si se proporciona un número válido de imágenes para generar
+if [ $# -eq 0 ] || ! [[ $1 =~ ^[0-9]+$ ]]; then
+	echo "Error. Debe proporcionar un número válido de imágenes para generar."
+	exit 1
+fi
+
 # Crear carpeta madre con ID aleatorio
 
 # Obtener fecha y hora actual
