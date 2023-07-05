@@ -37,7 +37,6 @@ for ((i=1; i<=cantidad; i++)); do
     wget -q -O "$nombre.jpg" "https://thispersondoesnotexist.com/"
     
     # Modificar dimensiones de la imagen
-    convert "$nombre.jpg" -gravity center -resize 512x512+0+0 -extent 512x512 "$nombre.jpg"
     
     # Agregar nombre de archivo a la lista de nombres de personas generados
     suma_verificacion+="$nombre.jpg "
