@@ -6,12 +6,6 @@ if [ $# -eq 0 ] || ! [[ $1 =~ ^[0-9]+$ ]]; then
 	exit 1
 fi
 
-# Crear carpeta madre con ID aleatorio
-
-# Obtener fecha y hora actual
-fecha=$(date +"%Y-%m-%d_%H-%M")
-
-
 # argumento: cantidad de imagenes a generar
 
 
@@ -36,8 +30,6 @@ for ((i=1; i<=cantidad; i++)); do
     # Descargar imagen de thispersondoesnotexist.com
     wget -q -O "$nombre.jpg" "https://thispersondoesnotexist.com/"
     
-    # Modificar dimensiones de la imagen
-    
     # Agregar nombre de archivo a la lista de nombres de personas generados
     suma_verificacion+="$nombre.jpg "
     
@@ -47,6 +39,8 @@ done
 
 # Comprimir las imágenes
 echo "Comprimiendo imágenes..."
+
+rm imagenes.tar.gz
 tar -czvf imagenes.tar.gz *.jpg
 
 # Generar el archivo con la suma de verificación
@@ -56,12 +50,9 @@ md5sum *.jpg > suma_verificacion.txt
 
 # Crear carpeta para guardar todos los datos de esta ejecución
 
-carpeta="carpeta_$fecha"
-mkdir "$carpeta"
-mv suma_verificacion.txt "$carpeta"
-mv imagenes.tar.gz "$carpeta"
-mkdir "$carpeta/imagenes"
-mv *.jpg "$carpeta/imagenes"
+mkdir -p "imagenes"
+rm -f imagenes/*.jpg
+mv *.jpg "imagenes"
 
 
 echo "Proceso completado."
