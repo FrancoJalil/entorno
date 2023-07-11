@@ -34,7 +34,7 @@ for ((i=1; i<=cantidad; i++)); do
     suma_verificacion+="$nombre.jpg "
     
     # Esperar un tiempo aleatorio antes de la siguiente descarga
-    sleep $((RANDOM % 5))
+    sleep $((RANDOM % 2))
 done
 
 # Comprimir las imágenes
