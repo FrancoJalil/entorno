@@ -45,7 +45,9 @@ tar -czvf imagenes.tar.gz *.jpg
 
 # Generar el archivo con la suma de verificación
 echo "Generando archivo de suma de verificación..."
-md5sum *.jpg > suma_verificacion.txt
+
+rm suma_verificacion.txt
+md5sum *.jpg >> suma_verificacion.txt
 
 
 # Crear carpeta para guardar todos los datos de esta ejecución
