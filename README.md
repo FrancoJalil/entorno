@@ -24,17 +24,25 @@ Es necesario de antemano descargar e instalar [docker](https://www.docker.com/) 
    git init
    git clone https://github.com/FrancoJalil/entorno.git 
    ```
-   
-   Para guardar el archivo final en el servidor host:
 
+   Para crear la imagen a partir del dockerfile:
    ```
-   sudo docker run -it -v (ruta local del repositorio):/app/archivos_comprimidos/ myapp
+   docker build . -t myapp
    ```
-   
-   Para construir el contenedor a partir del dockerfile:
 
+   Para crear el contenedor, ejecutar la imagen y establecer un directorio para guardar los archivos compartidos:
+
+   LINUX:
    ```
-   sudo docker build -t tp-entorno-final-5 .
+   docker run -it -v /home/user/ejemplo:/app/archivos_comprimidos/ myapp
    ```
- 3. Por defecto, el archivo **./menu.sh** es ejecutado, por lo que ya estamos corriendo el programa en el container de docker.
+
+   WINDOWS:
+   ```
+   docker run -it -v C:/Users/user/ejemplo:/app/archivos_comprimidos/ myapp
+   ```
+
+   // donde '/home/user/ejemplo' o  'C:/Users/user/ejemplo' es la ruta donde se guardarán los archivos creados con el programa.
+   
+ 2. Por defecto, el archivo **./menu.sh** es ejecutado, por lo que ya estamos corriendo el programa en el container de docker.
    
