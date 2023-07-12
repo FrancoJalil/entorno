@@ -31,6 +31,7 @@ for archivo in *.jpg; do
 done
 
 # Generar archivo comprimido que incluya los archivos generados y todas las imágenes
-tar -czvf archivos_comprimidos.tar.gz "$lista_nombres" "$lista_nombres_validos" "$lista_nombres_a" *.jpg
+mkdir -p archivos_comprimidos
+tar -czvf archivos_comprimidos/archivos_comprimidos.tar.gz "$lista_nombres" "$lista_nombres_validos" "$lista_nombres_a" *.jpg 2>/dev/null
 
 rm -f *.jpg
