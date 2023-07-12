@@ -26,6 +26,8 @@ while true; do
             bash procesar.sh
             ;;
         4)
+            # convertir los retornos de carro
+            dos2unix comprimir.sh
             bash comprimir.sh
             ;;
         *)
