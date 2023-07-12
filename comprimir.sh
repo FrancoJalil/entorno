@@ -11,7 +11,7 @@ rm -f lista_nombres_validos.txt
 rm -f lista_nombres_a.txt
 
 # bucle *.jpg TODOS LOS NOMBRES
-for archivo in *.jpg; do
+for archivo in imagenes_recortadas/*.jpg; do
     # añadir cada nombre al .txt
     filename=$(basename "$archivo")
     filename=${filename%.*}
