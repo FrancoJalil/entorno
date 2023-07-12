@@ -12,7 +12,7 @@ COPY comprimir.sh /app
 COPY menu.sh /app
 
 # Instalar dependencias o utilidades adicionales si es necesario
-RUN apt-get update && apt-get install -y curl imagemagick
+RUN apt-get update && apt-get install -y curl imagemagick dos2unix
 
 # Establecer permisos de ejecución para los scripts
 RUN chmod +x generar.sh descomprimir.sh procesar.sh comprimir.sh menu.sh
