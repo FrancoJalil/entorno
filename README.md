@@ -44,5 +44,29 @@ Es necesario de antemano descargar e instalar [docker](https://www.docker.com/) 
 
    // donde '/home/user/ejemplo' o  'C:/Users/user/ejemplo' es la ruta donde se guardarán los archivos creados con el programa.
    
- 2. Por defecto, el archivo **./menu.sh** es ejecutado, por lo que ya estamos corriendo el programa en el container de docker.
+ 3. Por defecto, el archivo **./menu.sh** es ejecutado, por lo que ya estamos corriendo el programa en el container de docker. 
    
+    La terminal debe resultar con este aspecto: 
+
+    ![Terminal Resultante](readmeFiles/terminalResult.png)
+
+
+## Posibles errores
+
+
+1. Con sistemas en linux, es posible que al tratar de ejecutar alguno de los comandos nos aparezca un error iniciado con 
+```
+docker: Got permission denied
+```
+
+Es ese caso con incluir al inicio el comando **sudo** nos permite continuar con la ejecución. 
+
+</br>
+
+
+2. Al ejecutar el comando para crear la imagen con el dockerfile, nos puede salir un error iniciado con:
+```
+  unable to prepare context: unable to evaluate symlinks in Dockerfile path: lstat /home/santi/Documentos/Dockerfile: no such file or directory
+```
+
+Esto sucede ya que estamos fuera de la carpeta generada por el comando **git clone**, por lo que al movernos a la carpeta con el comando **cd entorno** se debe solucionar.
