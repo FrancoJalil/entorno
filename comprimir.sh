@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# verificar si hay imagenes recortadas
+if [ ! -f "imagenes_recortadas"/* ]; then
+    echo "No hay imágenes para comprimir"
+    exit 1
+fi
+
 valid_name_pattern="^[A-Z][a-zA-Z]*(\s+[A-Z][a-zA-Z]*)*$"
 
 lista_nombres="lista_nombres.txt"
