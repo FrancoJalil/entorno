@@ -3,10 +3,15 @@
 # filtrar imagenes con nombre de personas validos. Mayus+minus... (no numeros)
 # recortar imagenes a una resolucion de 512 x 512 con IMAGEMAGICK
 
+dir_imagenes="imagenes"
+
+if [ ! -f "$dir_imagenes"/* ]; then
+    echo "No hay imágenes, debes generarlas y comprimirlas primero."
+    exit 1
+fi
+
 # Patrón para filtrar imágenes con nombres de personas válidos
 valid_name_pattern="^[A-Z][a-zA-Z]*(\s+[A-Z][a-zA-Z]*)*$"
-
-dir_imagenes="imagenes"
 
 rm -f imagenes_recortadas/*
 mkdir -p "imagenes_recortadas"
