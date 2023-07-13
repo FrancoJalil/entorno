@@ -11,7 +11,7 @@ suma_verificacion="$2"
 tar -xzf $imagenes_comprimidas
 
 # chequea si es valida la suma
-md5sum -c $suma_verificacion
+errorMessage=$(md5sum -c $suma_verificacion) || { echo "Primero debes generar las imágenes."; exit 1; }
 
 if [ $? -eq 0 ]; then
     echo "La validación de la suma fue exitosa, los archivos se descomprimieron exitosamente"
